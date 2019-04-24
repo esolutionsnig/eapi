@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\App;
+use App\User;
+use App\Model\Review;
 
 use App\Model\Product;
-use App\Model\Review;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+
+        // The code will run according to order of arrangement: User -> Product -> Reviews
+        factory(User::class,5)->create();
+
         factory(Product::class,50)->create();
 
         factory(Review::class,300)->create();
